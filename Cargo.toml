@@ -1,0 +1,20 @@
+[package]
+name = "rustun"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Self-contained VPN: custom encrypted tunnel over UDP. Client + server in one binary."
+repository = "https://github.com/sudodc2/rustun"
+
+[dependencies]
+x25519-dalek = { version = "2", features = ["static_secrets"] }
+chacha20poly1305 = "0.10"
+blake2 = "0.10"
+rand = "0.8"
+base64 = "0.22"
+libc = "0.2"
+
+[profile.release]
+lto = true
+strip = true
+panic = "abort"
